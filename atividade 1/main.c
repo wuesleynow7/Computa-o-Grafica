@@ -1,0 +1,65 @@
+#include "ppmstruct.h"
+
+int main(){
+
+
+   
+
+    //aplicando o carimbo com transparencia a duas imagens 
+    image* imagemDestino2 = carregaArquivo("xena_p3.ppm");
+    image* carimbo = carregaArquivo("shapes_p3.ppm");
+    carimbaImagem(imagemDestino2,carimbo, 60,45,1,255,255,255);
+    salvaImagem(imagemDestino2,"xena_carimbo_transparente.ppm");
+
+
+    //############## testar salvar arquivo_p6 #########################
+    // image* a = carregaArquivo("shapes_p3.ppm");
+    // salvaImagem(a, "a_p3.ppm");                   // gravacao direta em P3
+    // salvaImagem_P6(a, "teste_p6.ppm");            // grava em P6
+
+    // image* b = carregaArquivo("teste_p6.ppm");    // le o P6 que acabou de gravar
+    // salvaImagem(b, "b_p3.ppm");                   // regrava em P3
+    // gcc -Wall -Wextra -g main.c ppmstruct.c -o programa && ./programa
+    // comando Ver os primeiros bytes do arquivo P6 em hexadecimal
+    // head -c 32 teste_p6.ppm | xxd
+
+
+    //############## aplicando o carimbo sólido a duas imagens ########################
+    // image* imagemDestino = carregaArquivo("xena_p3.ppm");
+    // image* carimbo = carregaArquivo("gradiente.ppm");
+    // carimbaImagem(imagemDestino,carimbo, 600,450,0,0,0,0);
+    // salvaImagem(imagemDestino,"xena_carimbo_solido.ppm");
+
+
+
+    // ############# testando o carimbo pequeno primeiro
+    // image* imagemDestino = malloc(sizeof *imagemDestino);
+    // imagemDestino = inicializa(imagemDestino, 130, 130);
+    // image* testeCarimbo = carregaArquivo("carimbo_teste.ppm");
+    // carimbaImagem(imagemDestino, testeCarimbo, 25, 10,0,0,0,0);
+    // salvaImagem(imagemDestino, "carimbo_solido_pequeno.ppm");
+
+
+
+    // ############# testando as funções
+    // image* figura = malloc(sizeof *figura);
+    // figura= inicializa(figura,640, 480);
+    // image* figura2 = malloc(sizeof*figura2);
+    // figura2 = inicializa(figura2, 10,10);
+
+    // putPixel(figura2,0,0,5,5,60); //escrevendo na figura2 R=5, G=5, B=60, na posicao (0,0)
+    // pixel p = get_pixel(figura2, 0, 0);// peguei o pixel de posicao (0,0)
+    // printf("R=%d G=%d B=%d\n", p.red, p.green, p.blue); //tem que sair R=5 G=5 B=60, se sair o getpixel e putpixel estao certos
+
+
+    //testes para salvar imagem
+    //salvaImagem(figura, "olha3.ppm");  // imagem gerada quando modifiquei a altura [i] eixo x
+    //salvaImagem(figura, "olha.ppm");   // imagem gerada quando modifiquei a largura [j] eixo y
+    //salvaImagem(figura, "olha2.ppm");  // imagem gerada quando misturei a altura [i] e largura [j]
+
+    // mostra(figura); //vai mostrar a matriz numérica no terminal
+    // apaga(figura);
+
+    return 0;
+
+}
